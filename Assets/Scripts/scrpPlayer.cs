@@ -7,7 +7,7 @@ public class scrpPlayer : MonoBehaviour {
 	//A public float for speed.
 	public float speedP1 = 1.0f;
 	public GameObject m_BulletPrefab = null;
-	public int bulletCountP1 = 0;
+	//public int bulletCountP1 = 0;
 
     ////Camera
     //public float cameraDistOffset = 10;
@@ -24,7 +24,7 @@ public class scrpPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Debug.Log(bulletCountP1);
+		//Debug.Log(bulletCountP1);
 
 		Vector3 pos;
 		pos.x = transform.position.x;
@@ -57,7 +57,7 @@ public class scrpPlayer : MonoBehaviour {
 
 			Rigidbody rb = copy.GetComponent<Rigidbody>();
 			rb.AddForce(transform.forward * 1000, ForceMode.Acceleration);
-			++bulletCountP1;
+			//++bulletCountP1;
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape))
