@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class scrpPlayer : MonoBehaviour {
 
+    //To make it so that the car doesn't keep driving like a spaz in the air, maybe do a check for if colliding on ground then drive, if not then 
+    // use the buttons to rotate. Or maybe even just not be able to do anything unless youre driving on the ground.
+
+
 	//A public float for speed.
 	public float speedP1 = 1.0f;
 	public GameObject m_BulletPrefab = null;
@@ -29,27 +33,31 @@ public class scrpPlayer : MonoBehaviour {
 		Vector3 pos;
 		pos.x = transform.position.x;
 
+        //Forward
 		if(Input.GetKey(KeyCode.W))
 		{
 			transform.Translate(Vector3.forward * speedP1 * Time.deltaTime);
 		}
 			
+        //Back
 		if(Input.GetKey(KeyCode.S))
 		{
 			transform.Translate(Vector3.back * speedP1 * Time.deltaTime);
 		}
 
-
+        //Right
 		if (Input.GetKey(KeyCode.D))
 		{
 			transform.Rotate(0, Time.deltaTime * 200.0f, 0);
 		}
 
+        //Left
 		if (Input.GetKey(KeyCode.A))
 		{
 			transform.Rotate(0, Time.deltaTime * -200.0f, 0);
 		}
 
+        //Shoot
 		if (Input.GetKey(KeyCode.Space))
 		{
 			GameObject copy = Instantiate(m_BulletPrefab);
@@ -60,9 +68,30 @@ public class scrpPlayer : MonoBehaviour {
 			//++bulletCountP1;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Escape))
+        //Boost Start
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speedP1 = speedP1 * 5;
+        }
+
+        //Boost finish
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speedP1 = speedP1 / 5;
+        }
+
+        //Jump
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            transform.Translate(Vector3.up * 260 * Time.deltaTime, Space.World);
+        }
+
+        //Quit
+        if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();
 		}
+
+
 	}
 }
