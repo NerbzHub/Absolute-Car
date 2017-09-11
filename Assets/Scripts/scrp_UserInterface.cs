@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class scrp_UserInterface : MonoBehaviour {
 
     public Text m_UITimer;
-    private float m_Timer = 120.0f;
+    private float m_Timer = 90.0f;
     public Text m_UIPlayer1Score;
     public Text m_UIPlayer2Score;
 	
