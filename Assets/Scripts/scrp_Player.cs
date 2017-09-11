@@ -34,6 +34,8 @@ public class scrp_Player : MonoBehaviour {
     private float m_FireTimer = 0.5f;
     public float m_FireForce = 15.0f;
 
+	
+
     // Use this for initialization
     void Awake ()
 	{
@@ -81,7 +83,8 @@ public class scrp_Player : MonoBehaviour {
 		//Shoot
 		if (Input.GetAxisRaw(m_Fire) != 0 && m_FireTimer<0)
 		{
-            //Position new bullet
+			
+			//Position new bullet
 			GameObject bullet = Instantiate(m_BulletPrefab);
             bullet.transform.position = transform.position + transform.forward * m_SpawnDistance;
 
@@ -97,6 +100,7 @@ public class scrp_Player : MonoBehaviour {
 
             bullet.GetComponent<scrp_Bullet>().SetDetails(m_Player);
             m_FireTimer = m_FireDelay;
+
         }
         m_FireTimer -= Time.deltaTime;
 
