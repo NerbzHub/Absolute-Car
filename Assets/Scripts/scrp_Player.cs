@@ -112,8 +112,9 @@ public class scrp_Player : MonoBehaviour {
         if (col.gameObject.tag == "Arena")
         {
             m_Grounded = true;
+			
         }
-
+		
         //Hit by bullet
         if (col.gameObject.tag == "Bullet")
         {
