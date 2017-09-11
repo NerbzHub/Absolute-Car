@@ -23,10 +23,11 @@ GameObject:
   - component: {fileID: 23741289801061206}
   - component: {fileID: 95767085508830084}
   - component: {fileID: 54330646243027760}
-  - component: {fileID: 136835294340115866}
+  - component: {fileID: 65351370740621742}
+  - component: {fileID: 114626853883780402}
   m_Layer: 0
   m_Name: prefab_Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,13 +38,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1055187561278510}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -1.4793389, y: 1.64, z: -1.4063876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23741289801061206
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -97,7 +98,19 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!65 &65351370740621742
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055187561278510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.024071, y: 0.03642746, z: 0.024071008}
+  m_Center: {x: 0.0000000013969839, y: -0.0042806896, z: -0.0000000018626451}
 --- !u!95 &95767085508830084
 Animator:
   serializedVersion: 3
@@ -115,16 +128,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!136 &136835294340115866
-CapsuleCollider:
+--- !u!114 &114626853883780402
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1055187561278510}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.012035504
-  m_Height: 0.03642746
-  m_Direction: 1
-  m_Center: {x: 0.0000000013969839, y: -0.0042806896, z: -0.0000000018626451}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af06c73bd0146f4e8cc7d59a4e125ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 18e08b1c7ad21bb4d9fe34632637619b, type: 2}
+  - {fileID: 2100000, guid: 9f0abd8fce6f90f4ab19826b3ca22086, type: 2}
+  m_Explosion: {fileID: 198066923623675874, guid: 0fcdc27af60be5245b2b1cd16193dd9a,
+    type: 2}
+  m_Team: 0
