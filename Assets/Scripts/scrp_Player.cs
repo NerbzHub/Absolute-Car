@@ -62,15 +62,23 @@ public class scrp_Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //Forward/Back
-        float speed = Input.GetAxis(m_VerticalAxis) * m_Speed + Input.GetAxis(m_Boost) * m_BoostSpeed;
-        transform.Translate(speed * Vector3.forward * Time.deltaTime);
-      
 
-        //Left/Right
-        transform.Rotate(0, Input.GetAxis(m_HorizontalAxis) * Time.deltaTime * m_RotateSpeed, 0);
+		//Forward/Back
+		float speed = Input.GetAxis(m_VerticalAxis) * m_Speed + Input.GetAxis(m_Boost) * m_BoostSpeed;
+		transform.Translate(speed * Vector3.forward * Time.deltaTime);
 
-        //Shoot
+
+		//Left/Right
+		transform.Rotate(0, Input.GetAxis(m_HorizontalAxis) * Time.deltaTime * m_RotateSpeed, 0);
+
+		//Jump
+		if (Input.GetAxisRaw(m_Jump) != 0 && m_Grounded)
+		{
+			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * m_JumpSpeed, ForceMode.Impulse);
+			m_Grounded = false;
+		}
+
+		//Shoot
 		if (Input.GetAxisRaw(m_Fire) != 0 && m_FireTimer<0)
 		{
             //Position new bullet
@@ -92,15 +100,18 @@ public class scrp_Player : MonoBehaviour {
         }
         m_FireTimer -= Time.deltaTime;
 
-        //Jump
-        if (Input.GetAxisRaw(m_Jump) != 0 && m_Grounded)
-        {
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.up * m_JumpSpeed, ForceMode.Impulse);
-            m_Grounded = false;
-        }
+        
 
-        //Quit
-        if (Input.GetAxisRaw("Menu") != 0)
+		//If flip button pressed
+		//Get whichever is larger:	
+		//transform.localEulerAngles.x
+		//transform.localEulerAngles.z
+
+		//Add a force that flips back by that much
+		//GetComponent<Rigidbody>().angularVelocity
+
+		//Quit
+		if (Input.GetAxisRaw("Menu") != 0)
 		{
 			Application.Quit();
 		}
@@ -118,7 +129,7 @@ public class scrp_Player : MonoBehaviour {
         //Hit by bullet
         if (col.gameObject.tag == "Bullet")
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             if (col.gameObject.GetComponent<scrp_Bullet>().m_Team != m_Player)
                 m_PlayerScore++;
             else
