@@ -801,11 +801,11 @@ MonoBehaviour:
   m_BulletPrefab: {fileID: 1055187561278510, guid: ace18cf3494b2be49b58a4380ad307b0,
     type: 2}
   m_UserInterface: {fileID: 0}
+  m_Explosion: {fileID: 198066923623675874, guid: 0fcdc27af60be5245b2b1cd16193dd9a,
+    type: 2}
   m_Speed: 10
   m_RotateSpeed: 200
   m_BoostSpeed: 20
   m_JumpSpeed: 50
   m_FireDelay: 0.5
   m_FireForce: 100
-  m_Explosion: {fileID: 198066923623675874, guid: 0fcdc27af60be5245b2b1cd16193dd9a,
-    type: 2}
