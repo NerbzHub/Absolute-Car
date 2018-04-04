@@ -17,10 +17,10 @@ public class scrp_UserInterface : MonoBehaviour {
         m_Timer -= Time.deltaTime;
         m_UITimer.text = "Timer: " + ((int)m_Timer).ToString();
 
-		if(m_Timer < 0)
-		{
-			SceneManager.LoadScene("Level01");
-		}
+		//if(m_Timer < 0)
+		//{
+		//	SceneManager.LoadScene("Level01");
+		//}
 
 		//m_UIPlayer1Score.text = "Player 1 Score:";
 		//m_UIPlayer2Score.text = "Player 2 Score:";
